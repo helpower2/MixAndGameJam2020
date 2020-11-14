@@ -19,13 +19,18 @@ public class MusicManager : Singleton<MusicManager>
         audioSource = GetComponent<AudioSource>();
     }
 
-    private IEnumerable Start()
+    private void Start()
     {
-        yield return new WaitForSeconds(1);
+        StartCoroutine(StartMusicAfterWait());
+    }
+
+    private IEnumerator StartMusicAfterWait()
+    {
+        yield return new WaitForSeconds(1.0f);
         StartMusic();
     }
 
-    [Button]
+    //[Button]
     public void StartMusic()
     {
         //sets the correct bpm
