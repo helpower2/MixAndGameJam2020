@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using EasyButtons;
 using Game.Beat;
@@ -16,6 +17,12 @@ public class MusicManager : Singleton<MusicManager>
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private IEnumerable Start()
+    {
+        yield return new WaitForSeconds(1);
+        StartMusic();
     }
 
     [Button]
