@@ -2,7 +2,7 @@
 
 namespace Game.Beat
 {
-    public class BeatSync : MonoBehaviour, IBeat
+    public class BeatSync : MonoBehaviour, IBeat, GameManager.IReset
     {
         public Sprite spikesSprite;
         private SpriteRenderer spriteRenderer;
@@ -36,6 +36,11 @@ namespace Game.Beat
                 spriteRenderer.sprite = defaultSprite;
                 polygonCollider2D.enabled = false;
             }
+        }
+
+        public void WorldReset()
+        {
+            spriteRenderer.sprite = defaultSprite;
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Game.Beat;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed = 1f;
+    public float maxDistancePerBeat = 1f;
     public Transform movePoint;
 
     float gridDistance = 0.356666f;
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rbody;
     SpriteRenderer spriteRenderer;
+    [HideInInspector]
+    public Vector3 spawnPoint;
 
     [HideInInspector]
     public bool isCollidingRightTop = false;
@@ -23,11 +26,12 @@ public class PlayerController : MonoBehaviour
     public bool isCollidingLeftTop = false;
     [HideInInspector]
     public bool isCollidingLeftBottom = false;
-
+    
     private void Awake()
     {
         rbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spawnPoint = transform.position;
         movePoint.parent = null;
     }
 
@@ -38,11 +42,13 @@ public class PlayerController : MonoBehaviour
         isoXAxis = isoXAxis.normalized;
         isoYAxis = isoYAxis.normalized;
 
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, movementSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, (maxDistancePerBeat * (Time.fixedDeltaTime / BeatIndex.SecondsPerBeat)));
 
         if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f)
         {
-            if (Input.GetAxisRaw("Horizontal") == 1f && !isCollidingRightBottom) //Right Bottom
+            if (GameManager.dead || GameManager.won) return;
+            
+                if (Input.GetAxisRaw("Horizontal") == 1f && !isCollidingRightBottom) //Right Bottom
             {
                 movePoint.position += (isoYAxis * -gridDistance);
                 spriteRenderer.flipX = true;
@@ -85,6 +91,12 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.OnPlayerFinish();
         }
+
+        if (otherCollision.CompareTag("Void"))
+        {
+            GameManager.Instance.OnHitDeadly();
+            DebugPrint("fell into the void");
+        }
     }
 
     /// <summary>
@@ -93,6 +105,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="position">position</param>
     public void SetPosition(Vector2 position)
     {
+        transform.position = position;
         movePoint.position = position;
     }
 

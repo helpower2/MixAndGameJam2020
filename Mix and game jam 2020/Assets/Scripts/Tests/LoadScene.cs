@@ -12,7 +12,7 @@ public class LoadScene : MonoBehaviour
     public SceneIndexes sceneToLoad = SceneIndexes.MainMenu;
     public LoadSceneMode loadSceneMode = LoadSceneMode.Additive;
     public bool unloadScene = false;
-    public SceneIndexes sceneToUnload = SceneIndexes.Game;
+    public SceneIndexes sceneToUnload = SceneIndexes.GameLevel1;
     
     // Start is called before the first frame update
     void Start()

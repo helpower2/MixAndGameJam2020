@@ -70,6 +70,12 @@ namespace Game.Beat
             timeOfLastBeat = 0f;
             timeOfLastHalfBeat = 0f;
         }
+        public void ResetBeat()
+        {
+            beatIndex = 0; //reset beat index
+            timeOfLastBeat = 0f;
+            timeOfLastHalfBeat = 0f;
+        }
     }
 
     /// <summary>

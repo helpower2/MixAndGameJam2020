@@ -8,6 +8,8 @@ TagManager:
   - DebugObject
   - Enemy
   - StopMovement
+  - Void
+  - Platform
   layers:
   - Default
   - TransparentFX

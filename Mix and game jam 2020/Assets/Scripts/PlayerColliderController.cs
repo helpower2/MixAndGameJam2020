@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerColliderController : MonoBehaviour
 {
     public int colliderIndex = 0;
-
+/*
     private void OnTriggerStay2D(Collider2D otherCollision)
     {
-        if(otherCollision.gameObject.tag == "StopMovement")
+        if(otherCollision.CompareTag("StopMovement"))
         {
             if(colliderIndex == 0)
                 GetComponentInParent<PlayerController>().isCollidingLeftTop = true;
@@ -23,7 +23,7 @@ public class PlayerColliderController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D otherCollision)
     {
-        if (otherCollision.gameObject.tag == "StopMovement")
+        if (otherCollision.CompareTag("StopMovement"))
         {
             if (colliderIndex == 0)
                 GetComponentInParent<PlayerController>().isCollidingLeftTop = false;
@@ -34,5 +34,5 @@ public class PlayerColliderController : MonoBehaviour
             if (colliderIndex == 3)
                 GetComponentInParent<PlayerController>().isCollidingRightBottom = false;
         }
-    }
+    }*/
 }

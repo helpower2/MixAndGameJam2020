@@ -48,10 +48,16 @@ public class MusicManager : MonoBehaviour
         audioSource.clip = music;
         audioSource.loop = true;
         audioSource.Play();
+        beatMaster.ResetBeat();//starts the beat master
+    }
 
-        if (beatMaster.running)
-            return;
-        beatMaster.StartStopBeat();//starts the beat master
+    public void StopMusic()
+    {
+        audioSource.Stop();
+        
+        BeatIndex.BeatsPerMinute = bpm;
+        beatMaster.bpm = bpm;
+        
     }
     
 }

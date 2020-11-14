@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EasyButtons;
 using Game.Beat;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 
 public class ColorSwitcherText : MonoBehaviour, IBeat
@@ -14,7 +17,12 @@ public class ColorSwitcherText : MonoBehaviour, IBeat
     public int switchEvery = 0;
     public int offset;
     private Color _currentColor = Color.black;
-    
+
+    public void Start()
+    {
+        ChangeColor();
+    }
+
     public void HalfBeat(int index) { }
 
     public void Beat(int index)//called every beat
@@ -36,7 +44,7 @@ public class ColorSwitcherText : MonoBehaviour, IBeat
         }
 
     }
-
+    [Button]
     private void ChangeColor()
     {
        _currentColor = colors.Except(new Color[1] {_currentColor}).ToArray()[Random.Range(0, colors.Length - 2)];
