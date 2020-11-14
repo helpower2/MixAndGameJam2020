@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 1f;
+    public Transform movePoint;
+
     float gridDistance = 0.356666f;
     Vector3 isoXAxis;
     Vector3 isoYAxis;
-    public Transform movePoint;
 
     Rigidbody2D rbody;
     SpriteRenderer spriteRenderer;
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D otherCollision)
+    private void OnTriggerStay2D(Collider2D otherCollision)
     {
         if (otherCollision.CompareTag("Pickup"))
         {
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="position">position</param>
     public void SetPosition(Vector2 position)
     {
-        transform.position = position;
+        movePoint.position = position;
     }
 
     void DebugPrint(string debugMessage)
