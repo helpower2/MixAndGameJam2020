@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 1f;
+    Vector2 newXPos = Vector2.zero;
+    Vector2 newYPos = Vector2.zero;
 
     Rigidbody2D rbody;
     SpriteRenderer spriteRenderer;
@@ -23,13 +25,36 @@ public class PlayerController : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
         inputVector = Vector2.ClampMagnitude(inputVector, 1);
-        Vector2 movement = inputVector * movementSpeed;
-        if (movement.x > 0)
-            spriteRenderer.flipX = true;
-        else if(movement.x < 0)
-            spriteRenderer.flipX = false;
-        Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
-        rbody.MovePosition(newPos);
+
+        //Convert input axes to isometric input axes
+        Vector2 isoXAxis = new Vector2(60.0f, 30.0f);
+        Vector2 isoYAxis = new Vector2(-60.0f, 30.0f);
+        isoXAxis = Vector2.ClampMagnitude(isoXAxis, 1.0f);
+        isoYAxis = Vector2.ClampMagnitude(isoYAxis, 1.0f);
+        Vector2 isoInputVector = isoXAxis + isoYAxis;
+        if (horizontalInput != 0)
+        {
+            Vector2 movement = isoXAxis * horizontalInput * movementSpeed;
+            if (movement.x > 0)
+                spriteRenderer.flipX = true;
+            else if (movement.x < 0)
+                spriteRenderer.flipX = false;
+            newXPos = movement * Time.fixedDeltaTime;
+        }
+        if (verticalInput != 0)
+        {
+            Vector2 movement = isoYAxis * verticalInput * movementSpeed;
+            newYPos = movement * Time.fixedDeltaTime;
+        }
+        rbody.MovePosition(currentPos + newXPos + newYPos);
+
+        //Vector2 movement = inputVector * movementSpeed;
+        //if (movement.x > 0)
+        //    spriteRenderer.flipX = true;
+        //else if (movement.x < 0)
+        //    spriteRenderer.flipX = false;
+        //Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
+        //rbody.MovePosition(newPos);
     }
 
     private void OnTriggerEnter2D(Collider2D otherCollision)
@@ -44,7 +69,6 @@ public class PlayerController : MonoBehaviour
 
         if (otherCollision.gameObject.tag == "Enemy")
         {
-            Debug.Log("SPIKES!");
             DebugPrint("Hit Spikes!");
         }
     }

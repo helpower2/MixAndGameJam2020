@@ -27,13 +27,12 @@ namespace Game.Beat
         {
             if (BeatIndex.IsBeat(BeatType.Downbeat))
             {
-                Debug.Log("DownBeat");
+                //Debug.Log("DownBeat");
                 spriteRenderer.sprite = spikesSprite;
                 polygonCollider2D.enabled = true;
             }
             if (BeatIndex.IsBeat(BeatType.OnBeat))
             {
-                Debug.Log("OnBeat");
                 spriteRenderer.sprite = defaultSprite;
                 polygonCollider2D.enabled = false;
             }
