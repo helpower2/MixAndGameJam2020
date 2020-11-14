@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         if (otherCollision.CompareTag("Pickup"))
         {
+            Debug.Log(GameManager.Instance.ToString());
             GameManager.Instance.OnPickupCollected();
             Destroy(otherCollision.gameObject);
             DebugPrint("Picked up an object.");
@@ -70,6 +71,11 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.OnHitDeadly();
             DebugPrint("Hit Spikes!");
+        }
+
+        if (otherCollision.CompareTag("Finish"))
+        {
+            GameManager.Instance.OnPlayerFinish();
         }
     }
 

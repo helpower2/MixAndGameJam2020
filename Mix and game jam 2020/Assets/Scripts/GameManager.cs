@@ -11,11 +11,13 @@ public class GameManager : Singleton<GameManager>, IBeat
     public PlayerController playerController;
     public AudioSource pickupSound;
     public int resetAfterXBeats = 8;
+    public GameObject finishUI;
     public static bool dead =false;
     public static int score = 0;
 
     private void Awake()
     {
+        DestroyOnLoad = true;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -41,7 +43,11 @@ public class GameManager : Singleton<GameManager>, IBeat
     {
         dead = true;
     }
-    
+
+    public void OnPlayerFinish()
+    {
+        finishUI.SetActive(true);
+    }
     public void ReloadScene()
     {
         var currentScene = SceneManager.GetActiveScene();

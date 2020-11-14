@@ -1,5 +1,7 @@
 ﻿#region
 
+using System;
+using System.Collections;
 using UnityEngine;
 
 #endregion
@@ -20,10 +22,31 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     private static bool _applicationIsQuitting;
 
     /// <summary>
+    /// when unity loads a new scene let the Instance be destroyed
+    /// </summary>
+    protected bool DestroyOnLoad
+    {
+        get => !_dontDestroyOnLoad;
+        set => _dontDestroyOnLoad = !value;
+    }
+
+    private bool _dontDestroyOnLoad = false;
+    
+    
+    /// <summary>
     ///     will get or create a Instance of <T>.
     /// </summary>
     public static T Instance
     {
+        set
+        {
+            if (_instance == null || _instance == value)
+                _instance = value;
+
+            Destroy(_instance);
+            _applicationIsQuitting = false;
+            _instance = value;
+        }
         get
         {
             if (_applicationIsQuitting)
@@ -58,11 +81,9 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                         singleton.name = "[Singleton] " + typeof(T);
 
                         DontDestroyOnLoad(singleton);
-
-                        Debug.Log(
-                            $"[Singleton] An instance of {typeof(T)} " +
-                            $"is needed in the scene, so ' {singleton}" +
-                            "' was created with DontDestroyOnLoad.");
+                        string text = "[Singleton] An instance of {typeof(T)} " +
+                                      $"is needed in the scene, so ' {singleton} whas created";
+                                      Debug.Log(text);
                     }
 
                     _instance = FindObjectOfType<T>();
@@ -73,13 +94,19 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        if (_dontDestroyOnLoad)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void OnDestroy()
     {
-        _applicationIsQuitting = true;
+        if (_dontDestroyOnLoad)
+        {
+            _applicationIsQuitting = true; 
+        }
     }
 }

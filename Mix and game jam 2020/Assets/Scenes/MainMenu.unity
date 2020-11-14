@@ -626,6 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 100
   music: {fileID: 8300000, guid: 7e1e0292b7aab014fa57e2b85b1f2a76, type: 3}
+  beatMaster: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!1 &539570647
 GameObject:
