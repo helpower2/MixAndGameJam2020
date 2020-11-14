@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,9 +32,10 @@ namespace Scenes
         /// </summary>
         /// <param name="sceneToUnload">the scene to unload</param>
         /// <param name="mode">the unloading options</param>
-        public void UnloadSceneAsync(SceneIndexes sceneToUnload, UnloadSceneOptions mode = UnloadSceneOptions.None)
+        public IEnumerator UnloadSceneAsync(SceneIndexes sceneToUnload, UnloadSceneOptions mode = UnloadSceneOptions.None)
         {
-            Loading(false);
+            yield return new WaitForEndOfFrame();
+            StartCoroutine(Loading(true));
             _scenesLoading.Add(SceneManager.UnloadSceneAsync((int)sceneToUnload, mode));
             StartProgressCounters();
         }
@@ -48,9 +50,8 @@ namespace Scenes
             yield return new WaitForEndOfFrame();
             Application.backgroundLoadingPriority = loadingSpeed;
             //Debug.Log($"started loading {sceneToLoad.ToString()}");
-            Loading(true);
+            StartCoroutine(Loading(true));
             var sceneLoadDing = SceneManager.LoadSceneAsync((int) sceneToLoad, mode);
-            sceneLoadDing.allowSceneActivation = false;
             _scenesLoading.Add(sceneLoadDing);
             StartProgressCounters();
         }
@@ -63,19 +64,19 @@ namespace Scenes
         public void AddLoadingProses(ILoading proses, bool showLoadingScreen = true)
         {
             if (showLoadingScreen) 
-                Loading(true);
+                StartCoroutine(Loading(true));
             _loadingThings.Add(proses);
             StartProgressCounters();
         }
 
         private IEnumerator GetLoadProgress()
         {
+            
             //Debug.Log("started loading");
             foreach (var scene in _scenesLoading.ToArray())
             {
-                yield return new WaitUntil(()=>scene.progress >0.8);
+                yield return new WaitUntil(()=>scene?.progress >0.8);
                 //Debug.Log($"Activating scene");
-                scene.allowSceneActivation = true;
                 yield return new WaitUntil(()=> scene.isDone);
                 
             }
@@ -87,7 +88,7 @@ namespace Scenes
             }
             //Debug.Log("done loading things");
             //done loading
-            Loading(false);
+            StartCoroutine(Loading(false));
         }
 
         private IEnumerator GetTotalProgressCount()
@@ -98,11 +99,9 @@ namespace Scenes
                 float scenesProgress = 0;
                 float restOfLoadingThings = 0;
 
-                _loadingThings.ForEach(x => restOfLoadingThings += x.Progress);
-                _scenesLoading.ForEach(x => scenesProgress += x.progress);
-                
+                _loadingThings.ForEach(x => restOfLoadingThings += x?.Progress ?? 1);
+                _scenesLoading.ForEach(x => scenesProgress += x?.progress ?? 1);
 
-                
                 scenesProgress = (scenesProgress / _scenesLoading.Count) * 100f / _scenesLoading.Count;
                 restOfLoadingThings = (restOfLoadingThings / _loadingThings.Count) * 100f / _loadingThings.Count;
 
@@ -116,13 +115,24 @@ namespace Scenes
         }
         
 
-        private void Loading(bool active)
+        private IEnumerator Loading(bool active)
         {
-            loadingScreen.SetActive(active);
             _isLoading = active;
-            if (active) return;
-            _scenesLoading = new List<AsyncOperation>();
-            _loadingThings = new List<ILoading>();
+            if (!active)
+            {
+                yield return new WaitForEndOfFrame();
+                if (_getLoadProgress != null) StopCoroutine(_getLoadProgress);
+                if (_getTotalProgressCount != null) StopCoroutine(_getTotalProgressCount);
+                //_scenesLoading = new List<AsyncOperation>();
+                //_loadingThings = new List<ILoading>();
+                Debug.Log(active + " Active");
+            }
+
+            if (loadingScreen != null)
+            {
+                loadingScreen.SetActive(active); 
+            }
+            
         }
 
         private void StartProgressCounters()

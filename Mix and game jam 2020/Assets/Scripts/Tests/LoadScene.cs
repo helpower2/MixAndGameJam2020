@@ -7,16 +7,32 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    public bool autoLoad = false;
+    public float loadSceneAfter = 0f;
+    public SceneIndexes sceneToLoad = SceneIndexes.MainMenu;
+    public LoadSceneMode loadSceneMode = LoadSceneMode.Additive;
+    public bool unloadScene = false;
+    public SceneIndexes sceneToUnload = SceneIndexes.Game;
+    
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Countdown());
+        if (autoLoad)
+        {
+            Load();
+        }
+        
     }
 
+    public void Load()
+    {
+        StartCoroutine(Countdown());
+    }
     IEnumerator Countdown()
     {
-        yield return new WaitForEndOfFrame();
-        StartCoroutine(LoadingSceneManager.Instance.LoadSceneAsync(SceneIndexes.MainMenu, LoadSceneMode.Additive));
+        yield return new WaitForSeconds(loadSceneAfter);
+        StartCoroutine(LoadingSceneManager.Instance.LoadSceneAsync(sceneToLoad, loadSceneMode));
+        StartCoroutine(LoadingSceneManager.Instance.UnloadSceneAsync(sceneToLoad, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects));
     }
     
 }

@@ -11,20 +11,22 @@ namespace Game.Beat
     /// this makes IBeat work 
     /// </summary>
     /// <remarks>only one per scene is allowed</remarks>
-    public class BeatMaster : Singleton<BeatMaster>
+    public class BeatMaster : MonoBehaviour
     {
         public int beatIndex;
         public bool running = false;
+        public MusicManager musicManager;
         
         [HideInInspector] public int bpm;
         [HideInInspector] public float timeOfLastBeat;
         [HideInInspector] public float timeOfLastHalfBeat;
         
-        private float Time => MusicManager.Instance.audioSource.time;
+        private float Time => musicManager.audioSource.time;
         private readonly List<IBeat> _beatSyncedObjects = new List<IBeat>(); //the list of IBeat objects 
 
         private void Awake()
         {
+            musicManager = musicManager ?? FindObjectOfType<MusicManager>();
             BeatIndex.BeatsPerMinute = bpm;
             var iBeatObjects = FindObjectsOfType<MonoBehaviour>().OfType<IBeat>();
             _beatSyncedObjects.AddRange(iBeatObjects);
@@ -63,7 +65,7 @@ namespace Game.Beat
         {
             running = !running;//starts or stops
             if (running) return;//when running return
-            MusicManager.Instance.audioSource.Stop();
+            musicManager.audioSource.Stop();
             beatIndex = 0; //reset beat index
             timeOfLastBeat = 0f;
             timeOfLastHalfBeat = 0f;

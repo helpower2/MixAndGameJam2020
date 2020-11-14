@@ -1,27 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Game.Beat;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>, IBeat
 {
-    public static GameManager instance = null;
+    public Vector2 playerSpawn;
+    public PlayerController playerController;
+    public AudioSource pickupSound;
+    public int resetAfterXBeats = 8;
+    public static bool dead =false;
     public static int score = 0;
 
     private void Awake()
     {
-        //Singleton Pattern replication in Unity Scripting
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -35,15 +29,42 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void ChangeScene(string i_sceneName)
+    public void OnPickupCollected()
     {
-        SceneManager.LoadScene(i_sceneName);
+        score++; //increase score
+        
+        //play sounds
+        pickupSound.Play();
     }
 
+    public void OnHitDeadly()
+    {
+        dead = true;
+    }
+    
     public void ReloadScene()
     {
-        Scene currentScene = new Scene();
-        currentScene = SceneManager.GetActiveScene();
+        var currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
     }
+
+    public void RestartLevel()
+    {
+        dead = false;
+        score = 0;
+        //reset player
+        playerController.SetPosition(playerSpawn);
+        //reset music
+        MusicManager.Instance.StartMusic();
+    }
+
+    public void Beat(int index)
+    {
+        if (dead && (index % resetAfterXBeats) == 0)//try to restart and keep the music smooth
+        {
+            RestartLevel();
+        }
+    }
+
+    public void HalfBeat(int index) { }
 }

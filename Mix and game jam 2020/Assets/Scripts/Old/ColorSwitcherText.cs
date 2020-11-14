@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Game.Beat;
 using UnityEngine;
+using UnityEngine.UI;
 
 
-public class ColorSwitcher : MonoBehaviour, IBeat
+public class ColorSwitcherText : MonoBehaviour, IBeat
 {
-    public SpriteRenderer sprite;
+    public Text text;
     public Color[] colors;
     public BeatType beatType = BeatType.Downbeat;
     public int switchEvery = 0;
@@ -33,12 +34,12 @@ public class ColorSwitcher : MonoBehaviour, IBeat
                 ChangeColor();                
             }
         }
-        
+
     }
 
     private void ChangeColor()
     {
        _currentColor = colors.Except(new Color[1] {_currentColor}).ToArray()[Random.Range(0, colors.Length - 2)];
-        sprite.color = _currentColor;
+        text.color = _currentColor;
     }
 }

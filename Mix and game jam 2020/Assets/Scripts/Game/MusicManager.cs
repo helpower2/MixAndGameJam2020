@@ -1,21 +1,28 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using EasyButtons;
 using Game.Beat;
 using UnityEngine;
 
 
 [RequireComponent(typeof(AudioSource))]
-public class MusicManager : Singleton<MusicManager>
+public class MusicManager : MonoBehaviour
 {
     public int bpm;
     public AudioClip music;
+    public BeatMaster beatMaster;
+    public static MusicManager Instance;
     [HideInInspector] public AudioSource audioSource;
-
-
+    
     private void Awake()
     {
+        if (Instance != null)
+            Destroy(Instance);
+        Instance = this;
+        
+        beatMaster = beatMaster ?? FindObjectOfType<BeatMaster>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -35,15 +42,16 @@ public class MusicManager : Singleton<MusicManager>
     {
         //sets the correct bpm
         BeatIndex.BeatsPerMinute = bpm;
-        BeatMaster.Instance.bpm = bpm;
+        beatMaster.bpm = bpm;
         
         //sets the audio setting and starts playing
         audioSource.clip = music;
         audioSource.loop = true;
         audioSource.Play();
 
-        if (BeatMaster.Instance.running)
+        if (beatMaster.running)
             return;
-        BeatMaster.Instance.StartStopBeat();//starts the beat master
+        beatMaster.StartStopBeat();//starts the beat master
     }
+    
 }

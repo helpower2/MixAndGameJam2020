@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         Vector2 currentPos = rbody.position;
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
+        Vector2 inputVector = new Vector2(horizontalInput, verticalInput) * (GameManager.dead? 0:1);
         inputVector = Vector2.ClampMagnitude(inputVector, 1);
 
         //Convert input axes to isometric input axes
@@ -59,18 +59,27 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D otherCollision)
     {
-        if (otherCollision.gameObject.tag == "Pickup")
+        if (otherCollision.CompareTag("Pickup"))
         {
-            GameManager.score += 1;
+            GameManager.Instance.OnPickupCollected();
             Destroy(otherCollision.gameObject);
-            GetComponent<AudioSource>().Play();
             DebugPrint("Picked up an object.");
         }
 
-        if (otherCollision.gameObject.tag == "Enemy")
+        if (otherCollision.CompareTag("Enemy"))
         {
+            GameManager.Instance.OnHitDeadly();
             DebugPrint("Hit Spikes!");
         }
+    }
+
+    /// <summary>
+    /// will set the position of the player to the nearest tile
+    /// </summary>
+    /// <param name="position">position</param>
+    public void SetPosition(Vector2 position)
+    {
+        transform.position = position;
     }
 
     void DebugPrint(string debugMessage)
