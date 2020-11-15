@@ -6392,7 +6392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoLoad: 0
   loadSceneAfter: 1
-  sceneToLoad: 4
+  sceneToLoad: 5
   loadSceneMode: 0
   unloadScene: 1
   sceneToUnload: 1
