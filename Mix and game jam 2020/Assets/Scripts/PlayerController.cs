@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rbody;
     SpriteRenderer spriteRenderer;
+
+    public Sprite[] playerSprite;
     [HideInInspector]
     public Vector3 spawnPoint;
 
@@ -51,22 +53,22 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetAxisRaw("Horizontal") == 1f && !isCollidingRightBottom) //Right Bottom
             {
                 movePoint.position += (isoYAxis * -gridDistance);
-                spriteRenderer.flipX = true;
+                spriteRenderer.sprite = playerSprite[0];
             }
             if (Input.GetAxisRaw("Vertical") == 1f && !isCollidingRightTop) //Right Top
             {
                 movePoint.position += (isoXAxis * gridDistance);
-                spriteRenderer.flipX = true;
+                spriteRenderer.sprite = playerSprite[1];
             }
             if (Input.GetAxisRaw("Horizontal") == -1f && !isCollidingLeftTop) //Left Top
             {
                 movePoint.position += (isoYAxis * gridDistance);
-                spriteRenderer.flipX = false;
+                spriteRenderer.sprite = playerSprite[2];
             }
             if (Input.GetAxisRaw("Vertical") == -1f && !isCollidingLeftBottom) //Left Bottom
             {
                 movePoint.position += (isoXAxis * -gridDistance);
-                spriteRenderer.flipX = false;
+                spriteRenderer.sprite = playerSprite[3];
             }
         }
     }

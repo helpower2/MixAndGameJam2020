@@ -11,7 +11,9 @@ namespace Game.Beat
         private PolygonCollider2D polygonCollider2D;
         private bool active;
         private int moveIndex;
+        public int offset;
         public bool[] platformBeat;
+        
         void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -32,7 +34,7 @@ namespace Game.Beat
                 return;
             if (platformBeat.Length != 0)
             {
-                active = platformBeat[moveIndex % platformBeat.Length];
+                active = platformBeat[(moveIndex  + offset )% platformBeat.Length];
             }
             else
             {

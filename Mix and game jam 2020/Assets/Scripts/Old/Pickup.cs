@@ -6,6 +6,5 @@ using UnityEngine.Events;
 
 public class Pickup : MonoBehaviour
 {
-    public int pickupScore;
     public UnityEvent onPickup = new UnityEvent();
 }
