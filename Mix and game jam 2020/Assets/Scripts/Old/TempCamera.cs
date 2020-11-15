@@ -21,7 +21,7 @@ public class TempCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Camera.allCameras.Except(new Camera[1]{this._camera}).Any())
+        if (Camera.allCameras.Except(new Camera[1]{this._camera}).ToList().Any())
         {
          Destroy(this.gameObject);   
         }
