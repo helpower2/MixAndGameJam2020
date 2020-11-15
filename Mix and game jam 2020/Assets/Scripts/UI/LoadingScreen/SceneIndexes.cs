@@ -7,5 +7,6 @@
         GameLevel1 = 2,
         GameLevel2 = 3,
         GameLevel3 = 4,
+        GameLevel4 = 5,
     }
 }
