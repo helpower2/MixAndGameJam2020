@@ -2,7 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using EasyButtons;
-using UnityEngine;
+using UnityEngine; 
+
+
+#if UNITY_EDITOR
+
+using UnityEditor;
+#endif
 
 namespace Game.Beat
 {
@@ -17,27 +23,29 @@ namespace Game.Beat
         public bool running = false;
         public MusicManager musicManager;
         
-        [HideInInspector] public int bpm;
+        //[HideInInspector] public int bpm;
         [HideInInspector] public float timeOfLastBeat;
         [HideInInspector] public float timeOfLastHalfBeat;
         
         private float Time => musicManager.audioSource.time;
-        private readonly List<IBeat> _beatSyncedObjects = new List<IBeat>(); //the list of IBeat objects 
+        private readonly List<IBeat> _iBeatSyncedObjects = new List<IBeat>(); //the list of IBeat objects 
+        private readonly List<Beat> _beatSyncedObjects = new List<Beat>(); //the list of IBeat objects 
 
         private void Awake()
         {
             musicManager = musicManager ?? FindObjectOfType<MusicManager>();
-            BeatIndex.BeatsPerMinute = bpm;
             var iBeatObjects = FindObjectsOfType<MonoBehaviour>().OfType<IBeat>();
-            _beatSyncedObjects.AddRange(iBeatObjects);
+            var beatObjects = FindObjectsOfType<MonoBehaviour>().OfType<Beat>();
+            _iBeatSyncedObjects.AddRange(iBeatObjects);
+            _beatSyncedObjects.AddRange(beatObjects);
         }
         
         // Update is called once per frame
         void Update()
         {
             if (!running) return; //return when not running
-
-            if (Time - timeOfLastBeat <= BeatIndex.SecondsPerBeat)
+            if (Time < timeOfLastBeat) timeOfLastBeat = 0;
+                if (Time - timeOfLastBeat <= BeatIndex.SecondsPerBeat)
             {
                 //not yet time for a beat 
                 //check half beat
@@ -46,7 +54,7 @@ namespace Game.Beat
                 //time for a Half beat
                 BeatIndex.CalculateHalfBeat();
                 timeOfLastHalfBeat = Time;
-                _beatSyncedObjects.ForEach(x => x.HalfBeat(beatIndex));
+                _iBeatSyncedObjects.ForEach(x => x.HalfBeat(beatIndex));
 
                 return;
             }
@@ -54,27 +62,40 @@ namespace Game.Beat
             beatIndex++;
             BeatIndex.CalculateBeat(beatIndex);
             timeOfLastBeat = Time;
-            _beatSyncedObjects.ForEach(x => x.Beat(beatIndex));
+            _iBeatSyncedObjects.ForEach(x => x.Beat(beatIndex));
+            AbstractBeat(beatIndex);
         }
 
         /// <summary>
         ///start or stops/resets the beat master
         /// </summary>
-        [Button]
-        public void StartStopBeat()
+        public void StartBeat()
         {
-            running = !running;//starts or stops
-            if (running) return;//when running return
-            musicManager.audioSource.Stop();
-            beatIndex = 0; //reset beat index
-            timeOfLastBeat = 0f;
-            timeOfLastHalfBeat = 0f;
+            running = true;//starts or stops
+        }
+
+        public void Stopbeat()
+        {
+            running = false;
         }
         public void ResetBeat()
         {
             beatIndex = 0; //reset beat index
             timeOfLastBeat = 0f;
             timeOfLastHalfBeat = 0f;
+        }
+
+        private void AbstractBeat(int beatIndex)
+        {
+            foreach (var beat in _beatSyncedObjects)
+            {
+                if (!running)
+                    continue;
+                
+                if (BeatIndex.IsBeat(beat.beatType, beat.offset))
+                    beat.OnBeat(beatIndex);
+
+            }
         }
     }
 
@@ -94,6 +115,22 @@ namespace Game.Beat
         /// </summary>
         /// <param name="index">the beat index</param>
         void HalfBeat(int index);
+    }
+
+    public abstract class Beat : MonoBehaviour
+    {
+        public int beatMultiplier = 1;
+        public int offset = 0;
+        public BeatType beatType;
+
+        public abstract void OnBeat(int beat);
+#if UNITY_EDITOR
+        private void OnGUI()
+        {
+            beatType = (Game.Beat.BeatType) EditorGUILayout.EnumFlagsField(beatType);
+        }
+#endif
+
     }
 }
 

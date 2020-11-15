@@ -75,9 +75,10 @@ public class PlayerController : MonoBehaviour
     {
         if (otherCollision.CompareTag("Pickup"))
         {
-            Debug.Log(GameManager.Instance.ToString());
+            //Debug.Log(GameManager.Instance.ToString());
             GameManager.Instance.OnPickupCollected();
-            Destroy(otherCollision.gameObject);
+            otherCollision.GetComponent<Pickup>()?.onPickup.Invoke();
+            otherCollision.gameObject.SetActive(false); //Destroy(otherCollision.gameObject);
             DebugPrint("Picked up an object.");
         }
 

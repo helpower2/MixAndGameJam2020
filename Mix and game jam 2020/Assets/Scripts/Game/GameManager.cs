@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>, IBeat
     public static int score = 0;
 
     public readonly List<IReset> resets = new List<IReset>();
+    public readonly List<Pickup> pickups = new List<Pickup>();
     private void Awake()
     {
         DestroyOnLoad = true;
@@ -28,10 +29,13 @@ public class GameManager : Singleton<GameManager>, IBeat
     private void Start()
     {
         resets.AddRange(FindObjectsOfType<MonoBehaviour>().OfType<IReset>());
+        pickups.AddRange(FindObjectsOfType<MonoBehaviour>().OfType<Pickup>());
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    { 
+    {
+        dead = false;
+        won = false;
         score = 0;
     }
 
@@ -67,6 +71,7 @@ public class GameManager : Singleton<GameManager>, IBeat
 
     public void RestartLevel()
     {
+        
         dead = false;
         score = 0;
         //reset player
@@ -77,6 +82,9 @@ public class GameManager : Singleton<GameManager>, IBeat
         blurPanel.SetActive(false);
         finishUI.SetActive(false);
         lostUI.SetActive(false);
+        
+        //restart pickups 
+        pickups.ForEach(x => x.gameObject.SetActive(true));
     }
 
     public void Beat(int index)
@@ -86,6 +94,7 @@ public class GameManager : Singleton<GameManager>, IBeat
             blurPanel.SetActive(true);
             lostUI.SetActive(true);
             MusicManager.Instance.StopMusic();
+            MusicManager.Instance.beatMaster.ResetBeat();
         }
     }
 

@@ -4,11 +4,14 @@ namespace Game.Beat
 {
     public class BeatSync : MonoBehaviour, IBeat, GameManager.IReset
     {
+        public BeatType beatType;
         public Sprite spikesSprite;
         private SpriteRenderer spriteRenderer;
         private Sprite defaultSprite;
         private PolygonCollider2D polygonCollider2D;
-
+        private bool active;
+        private int moveIndex;
+        public bool[] platformBeat;
         void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -23,19 +26,22 @@ namespace Game.Beat
             //you're code here
         }
 
-        public void Beat(int index)//called every beat
+        public void Beat(int index) //called every beat
         {
-            if (BeatIndex.IsBeat(BeatType.Downbeat))
+            if (!BeatIndex.IsBeat(beatType))
+                return;
+            if (platformBeat.Length != 0)
             {
-                //Debug.Log("DownBeat");
-                spriteRenderer.sprite = spikesSprite;
-                polygonCollider2D.enabled = true;
+                active = platformBeat[moveIndex % platformBeat.Length];
             }
-            if (BeatIndex.IsBeat(BeatType.OnBeat))
+            else
             {
-                spriteRenderer.sprite = defaultSprite;
-                polygonCollider2D.enabled = false;
+                active = !active;
             }
+
+            moveIndex++;
+            polygonCollider2D.enabled = active;
+            spriteRenderer.sprite = (active) ? spikesSprite : defaultSprite;
         }
 
         public void WorldReset()

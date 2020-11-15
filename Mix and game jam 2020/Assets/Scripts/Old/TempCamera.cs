@@ -2,8 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [RequireComponent(typeof(Camera))]
 public class TempCamera : MonoBehaviour
@@ -24,6 +27,7 @@ public class TempCamera : MonoBehaviour
         }
     }
 }
+#if UNITY_EDITOR
 [CustomEditor(typeof(TempCamera))]
 public class TempCameraDrawer : Editor
 {
@@ -33,3 +37,5 @@ public class TempCameraDrawer : Editor
         base.OnInspectorGUI();
     }
 }
+#endif
+

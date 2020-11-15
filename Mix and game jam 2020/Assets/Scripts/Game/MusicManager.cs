@@ -33,7 +33,7 @@ public class MusicManager : MonoBehaviour
 
     private IEnumerator StartMusicAfterWait()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         StartMusic();
     }
 
@@ -42,22 +42,19 @@ public class MusicManager : MonoBehaviour
     {
         //sets the correct bpm
         BeatIndex.BeatsPerMinute = bpm;
-        beatMaster.bpm = bpm;
-        
+
         //sets the audio setting and starts playing
         audioSource.clip = music;
         audioSource.loop = true;
         audioSource.Play();
-        beatMaster.ResetBeat();//starts the beat master
+        beatMaster.StartBeat();//starts the beat master
     }
 
     public void StopMusic()
     {
         audioSource.Stop();
-        
-        BeatIndex.BeatsPerMinute = bpm;
-        beatMaster.bpm = bpm;
-        
+        beatMaster.ResetBeat();
+        beatMaster.Stopbeat();
     }
     
 }
