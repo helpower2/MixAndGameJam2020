@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 29805974}
   - component: {fileID: 29805976}
   - component: {fileID: 29805975}
+  - component: {fileID: 29805977}
   m_Layer: 5
   m_Name: Text (2)
   m_TagString: Untagged
@@ -199,6 +200,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29805973}
   m_CullTransparentMesh: 0
+--- !u!114 &29805977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29805973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 29805973}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 5
+  time: 1
 --- !u!1 &60992637
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,13 +331,14 @@ GameObject:
   - component: {fileID: 80132193}
   - component: {fileID: 80132195}
   - component: {fileID: 80132194}
+  - component: {fileID: 80132196}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &80132193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -370,6 +393,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80132192}
   m_CullTransparentMesh: 0
+--- !u!114 &80132196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80132192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 80132192}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 10
+  time: 2
 --- !u!1 &120322208
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +994,7 @@ GameObject:
   - component: {fileID: 629280128}
   - component: {fileID: 629280127}
   - component: {fileID: 629280126}
+  - component: {fileID: 629280129}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -1037,6 +1082,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629280124}
   m_CullTransparentMesh: 0
+--- !u!114 &629280129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629280124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 629280124}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 10
+  time: 2
 --- !u!1 &645498548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1115,7 @@ GameObject:
   - component: {fileID: 645498552}
   - component: {fileID: 645498551}
   - component: {fileID: 645498550}
+  - component: {fileID: 645498553}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -1136,6 +1203,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645498548}
   m_CullTransparentMesh: 0
+--- !u!114 &645498553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645498548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 645498548}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 10
+  time: 2
 --- !u!1 &748012198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,10 +1259,10 @@ RectTransform:
   m_Father: {fileID: 1977060229}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 590.3227, y: -216.53789}
+  m_SizeDelta: {x: 393.54846, y: 433.07578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &748012200
 MonoBehaviour:
@@ -1654,6 +1742,7 @@ GameObject:
   - component: {fileID: 855862471}
   - component: {fileID: 855862473}
   - component: {fileID: 855862472}
+  - component: {fileID: 855862474}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -1721,6 +1810,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855862470}
   m_CullTransparentMesh: 0
+--- !u!114 &855862474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855862470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 855862470}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 5
+  time: 1
 --- !u!1 &948173448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1842,7 @@ GameObject:
   - component: {fileID: 948173449}
   - component: {fileID: 948173451}
   - component: {fileID: 948173450}
+  - component: {fileID: 948173452}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -1799,6 +1910,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948173448}
   m_CullTransparentMesh: 0
+--- !u!114 &948173452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948173448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 948173448}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 5
+  time: 1
 --- !u!1 &1000582659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,10 +1965,10 @@ RectTransform:
   m_Father: {fileID: 80132193}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 602.8227, y: -216.53789}
-  m_SizeDelta: {x: 368.54846, y: 433.07578}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1051860394
 GameObject:
@@ -1849,6 +1981,7 @@ GameObject:
   - component: {fileID: 1051860395}
   - component: {fileID: 1051860397}
   - component: {fileID: 1051860396}
+  - component: {fileID: 1051860398}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1916,6 +2049,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051860394}
   m_CullTransparentMesh: 0
+--- !u!114 &1051860398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051860394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 1051860394}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 5
+  time: 1
 --- !u!1 &1114500418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,6 +2081,7 @@ GameObject:
   - component: {fileID: 1114500419}
   - component: {fileID: 1114500421}
   - component: {fileID: 1114500420}
+  - component: {fileID: 1114500422}
   m_Layer: 5
   m_Name: Text (2)
   m_TagString: Untagged
@@ -1994,6 +2149,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114500418}
   m_CullTransparentMesh: 0
+--- !u!114 &1114500422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114500418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 1114500418}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 5
+  time: 1
 --- !u!1 &1169314678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,10 +2443,10 @@ RectTransform:
   m_Father: {fileID: 1977060229}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 196.77423, y: -216.53789}
+  m_SizeDelta: {x: 393.54846, y: 433.07578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1310738609
 MonoBehaviour:
@@ -2545,6 +2721,7 @@ GameObject:
   - component: {fileID: 1401363051}
   - component: {fileID: 1401363052}
   - component: {fileID: 1401363053}
+  - component: {fileID: 1401363054}
   m_Layer: 5
   m_Name: Box
   m_TagString: Untagged
@@ -2615,6 +2792,27 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &1401363054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401363050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 1401363050}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 10
+  time: 2
 --- !u!1 &1401779494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,6 +3161,7 @@ GameObject:
   - component: {fileID: 1648940575}
   - component: {fileID: 1648940577}
   - component: {fileID: 1648940576}
+  - component: {fileID: 1648940578}
   m_Layer: 5
   m_Name: Text (3)
   m_TagString: Untagged
@@ -3030,6 +3229,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648940574}
   m_CullTransparentMesh: 0
+--- !u!114 &1648940578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648940574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 1648940574}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 5
+  time: 1
 --- !u!1 &1651614727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,6 +3425,7 @@ GameObject:
   - component: {fileID: 1736995547}
   - component: {fileID: 1736995549}
   - component: {fileID: 1736995548}
+  - component: {fileID: 1736995550}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3272,6 +3493,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736995546}
   m_CullTransparentMesh: 0
+--- !u!114 &1736995550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736995546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 1736995546}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 5
+  time: 1
 --- !u!1 &1977060228
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,13 +3525,14 @@ GameObject:
   - component: {fileID: 1977060229}
   - component: {fileID: 1977060231}
   - component: {fileID: 1977060230}
+  - component: {fileID: 1977060232}
   m_Layer: 5
   m_Name: Panel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1977060229
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3344,6 +3587,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977060228}
   m_CullTransparentMesh: 0
+--- !u!114 &1977060232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977060228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 1977060228}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 10
+  time: 2
 --- !u!1 &2028537724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,6 +3619,7 @@ GameObject:
   - component: {fileID: 2028537725}
   - component: {fileID: 2028537727}
   - component: {fileID: 2028537726}
+  - component: {fileID: 2028537728}
   m_Layer: 5
   m_Name: Panel (2)
   m_TagString: Untagged
@@ -3418,6 +3683,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028537724}
   m_CullTransparentMesh: 0
+--- !u!114 &2028537728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028537724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 2028537724}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 10
+  time: 2
 --- !u!1 &2085289595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,10 +3738,10 @@ RectTransform:
   m_Father: {fileID: 80132193}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 184.27423, y: -216.53789}
-  m_SizeDelta: {x: 368.54846, y: 433.07578}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2096569344
 GameObject:
@@ -3468,6 +3754,7 @@ GameObject:
   - component: {fileID: 2096569345}
   - component: {fileID: 2096569347}
   - component: {fileID: 2096569346}
+  - component: {fileID: 2096569348}
   m_Layer: 5
   m_Name: Text (3)
   m_TagString: Untagged
@@ -3535,3 +3822,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096569344}
   m_CullTransparentMesh: 0
+--- !u!114 &2096569348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096569344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d90b20b25206204aaf9f92270dd6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMultiplier: 1
+  offset: 0
+  beatType: 0
+  gameObjectToShake: {fileID: 2096569344}
+  shakeOn: 
+  shakeOnStart: 0
+  shakeOnEnable: 1
+  intensity: 5
+  time: 1
