@@ -13173,7 +13173,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: ff2da7359ca57e74a976a01857ebe522, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.77
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13910,7 +13910,7 @@ PrefabInstance:
     - target: {fileID: 3643791687424829198, guid: 56d1c4085406531408c1c5eba23b0387,
         type: 3}
       propertyPath: maxDistancePerBeat
-      value: 0.45
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56d1c4085406531408c1c5eba23b0387, type: 3}

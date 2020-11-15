@@ -4135,7 +4135,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: platformBeat.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -4155,7 +4155,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: platformBeat.Array.data[1]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -4739,7 +4739,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: platformBeat.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -4759,7 +4759,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: platformBeat.Array.data[1]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -12900,7 +12900,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: platformBeat.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -12920,7 +12920,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: platformBeat.Array.data[1]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -13668,6 +13668,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3643791687424829198, guid: 56d1c4085406531408c1c5eba23b0387,
+        type: 3}
+      propertyPath: maxDistancePerBeat
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56d1c4085406531408c1c5eba23b0387, type: 3}
 --- !u!1001 &6002596700997203278
@@ -13787,6 +13792,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6002596699375855739, guid: 8557af29e3fb6cb42979cc83f36ec8cc,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fc14ad5a1896bd045a2548a7dc35a51e, type: 3}
     - target: {fileID: 6002596700877554161, guid: 8557af29e3fb6cb42979cc83f36ec8cc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
