@@ -10138,6 +10138,111 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1216047537}
     m_Modifications:
+    - target: {fileID: 1174216620458227220, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216620458227220, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216620458227220, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: platformBeat.Array.data[5]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216620458227220, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: platformBeat.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216620748862834, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216620748862834, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216620748862834, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: platformBeat.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621298368798, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621298368798, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621298368798, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: platformBeat.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621298368798, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: platformBeat.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621461261617, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621461261617, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621461261617, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: platformBeat.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621461261617, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: platformBeat.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621527485878, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621527485878, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621527485878, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: platformBeat.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621852915475, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621852915475, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: beatType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174216621852915475, guid: cc190e888a18c8744a3a61bc9fd53890,
+        type: 3}
+      propertyPath: platformBeat.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1174216622052546168, guid: cc190e888a18c8744a3a61bc9fd53890,
         type: 3}
       propertyPath: m_LocalPosition.x

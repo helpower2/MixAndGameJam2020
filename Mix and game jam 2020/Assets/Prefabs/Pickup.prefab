@@ -124,5 +124,5 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
+  movementY: 0.1
   time: 2
