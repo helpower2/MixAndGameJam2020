@@ -4653,6 +4653,11 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6002596699762860846, guid: 8557af29e3fb6cb42979cc83f36ec8cc,
+        type: 3}
+      propertyPath: loadSceneMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6002596699775832009, guid: 8557af29e3fb6cb42979cc83f36ec8cc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
