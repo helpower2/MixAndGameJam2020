@@ -527,8 +527,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!4 &80699045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5049958617832571533, guid: 1d778d68e88863740b5ec6d69523c880,
@@ -541,29 +539,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 591895862}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &122652208 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3139696349490007050, guid: 732928ba338c90d44b04b16f73e891bd,
-    type: 3}
-  m_PrefabInstance: {fileID: 3139696347797825503}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &122652212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122652208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1070c78ee1f3e94ea0f1b8c4b5199e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onPickup:
-    m_PersistentCalls:
-      m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!4 &133848194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5049958617832571533, guid: 4c4a8a919eb738a4a95f9f8e6b6439de,
@@ -1231,8 +1206,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!1001 &245928424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1601,7 +1574,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -1770,7 +1743,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -2887,7 +2860,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -3136,7 +3109,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -4244,7 +4217,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -4413,7 +4386,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -4952,8 +4925,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!4 &681301801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5049958617832571533, guid: 4c4a8a919eb738a4a95f9f8e6b6439de,
@@ -5041,7 +5012,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -6195,6 +6166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 856709863}
   - component: {fileID: 856709864}
+  - component: {fileID: 856709865}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -6228,6 +6200,103 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 5213694561588925321, guid: 8d25b81000166894a8e67a754f8d93ba,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 7f474d0a52d0c0c4b977870437d83e88, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &856709865
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856709862}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 5213694561588925321, guid: 8d25b81000166894a8e67a754f8d93ba,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3f8e0bb89e573ad42a6e8dfc3dc53359, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6655,7 +6724,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -6927,7 +6996,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -7090,7 +7159,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -7259,7 +7328,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -7365,7 +7434,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -7640,8 +7709,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!4 &1164007731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5049958617832571533, guid: 4c4a8a919eb738a4a95f9f8e6b6439de,
@@ -7729,7 +7796,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -7842,8 +7909,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!1001 &1178229128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7919,7 +7984,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -8100,7 +8165,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -8828,8 +8893,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!1001 &1253019013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9193,7 +9256,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -9656,7 +9719,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -10217,7 +10280,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -10467,7 +10530,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -10717,7 +10780,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -11204,7 +11267,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -11392,8 +11455,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!1001 &1756638675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11494,6 +11555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1942018262}
   pickupSound: {fileID: 856709864}
+  deathSound: {fileID: 856709865}
   resetAfterXBeats: 2
   finishUI: {fileID: 1625578802}
   lostUI: {fileID: 895502559}
@@ -11613,8 +11675,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!4 &1766700431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5049958617832571533, guid: 4c4a8a919eb738a4a95f9f8e6b6439de,
@@ -11784,8 +11844,6 @@ MonoBehaviour:
   onPickup:
     m_PersistentCalls:
       m_Calls: []
-  movementY: 0.4
-  time: 2
 --- !u!1001 &1791376932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11861,7 +11919,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -12048,7 +12106,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -13222,7 +13280,7 @@ PrefabInstance:
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
       propertyPath: beatMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586801486929158890, guid: 1d778d68e88863740b5ec6d69523c880,
         type: 3}
@@ -13792,11 +13850,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6002596699357277626, guid: 8557af29e3fb6cb42979cc83f36ec8cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6002596699375855739, guid: 8557af29e3fb6cb42979cc83f36ec8cc,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: fc14ad5a1896bd045a2548a7dc35a51e, type: 3}
+    - target: {fileID: 6002596699762860846, guid: 8557af29e3fb6cb42979cc83f36ec8cc,
+        type: 3}
+      propertyPath: loadSceneMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002596700545006532, guid: 8557af29e3fb6cb42979cc83f36ec8cc,
+        type: 3}
+      propertyPath: unloadScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6002596700877554161, guid: 8557af29e3fb6cb42979cc83f36ec8cc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

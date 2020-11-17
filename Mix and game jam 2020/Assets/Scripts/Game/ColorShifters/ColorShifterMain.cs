@@ -29,7 +29,7 @@ namespace Game.ColorShifters
 
                 shift.currentColor = shift.colors.
                     Except(new Color[1] {shift.currentColor}) //We dont need the current colour 
-                    .ToArray()[Random.Range(0, shift.colors.Length - 2)]; //grab a random color
+                    .ToArray()[Random.Range(0, shift.colors.Length - 1)]; //grab a random color
                 
                 shift.ChangeColor(shift.currentColor);
 

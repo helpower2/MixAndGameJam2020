@@ -10,6 +10,7 @@ namespace Game.Beat
         private Sprite defaultSprite;
         private PolygonCollider2D polygonCollider2D;
         private bool active;
+        public bool invertActive = false;
         private int moveIndex;
         public int offset;
         public bool[] platformBeat;
@@ -42,7 +43,8 @@ namespace Game.Beat
             }
 
             moveIndex++;
-            polygonCollider2D.enabled = active;
+            
+            polygonCollider2D.enabled = invertActive ? !active : active;
             spriteRenderer.sprite = (active) ? spikesSprite : defaultSprite;
         }
 

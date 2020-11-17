@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>, IBeat
 {
     public PlayerController playerController;
     public AudioSource pickupSound;
+    public AudioSource deathSound;
     public int resetAfterXBeats = 8;
     public GameObject finishUI;
     public GameObject lostUI;
@@ -17,6 +18,7 @@ public class GameManager : Singleton<GameManager>, IBeat
     public static bool dead = false;
     public static bool won = false;
     public static int score = 0;
+    
 
     public readonly List<IReset> resets = new List<IReset>();
     public readonly List<Pickup> pickups = new List<Pickup>();
@@ -55,6 +57,7 @@ public class GameManager : Singleton<GameManager>, IBeat
     public void OnHitDeadly()
     {
         dead = true;
+        deathSound.Play();
     }
 
     public void OnPlayerFinish()

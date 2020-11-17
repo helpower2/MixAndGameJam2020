@@ -22,6 +22,7 @@ public class TabGroup : MonoBehaviour
     {
         _selectedTab = _tabButtons[0] ?? throw new Exception("there are no TabButtons!");
         ResetTabs();
+        OnTabSelected(_selectedTab);
     }
 
     private void Update()

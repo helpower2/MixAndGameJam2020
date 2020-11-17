@@ -12,6 +12,6 @@ public class NameBeat : Beat
     public override void OnBeat(int beat)
     {
         //transform.DOScale(transform.localScale + (Vector3.one * scale), duration).SetLoops(1, loopType);
-        transform.DOShakeScale(duration, scale).SetLoops(1);
+        transform.DOShakeScale(duration, scale);
     }
 }
